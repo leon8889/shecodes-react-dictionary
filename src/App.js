@@ -1,6 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
 
+// https://github.com/leon8889/shecodes-react-dictionary
+// https://relaxed-mochi-9c5a9e.netlify.app/
+
 function App() {
 	return (
 		<div className="App">
@@ -19,7 +22,7 @@ function App() {
 				</a>
 				<a
 					href="https://getbootstrap.com/docs/3.4/css/"
-					className="btn btn-secondary"
+					className="btn btn-primary"
 				>
 					Bootstrap
 				</a>
