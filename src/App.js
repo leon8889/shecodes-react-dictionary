@@ -4,7 +4,7 @@ import "./App.css";
 import Dictionary from "./components/Dictionary.js";
 
 // https://github.com/leon8889/shecodes-react-dictionary
-// https://relaxed-mochi-9c5a9e.netlify.app/
+// https://shecodes-react-dictionary.netlify.app/
 
 function App() {
 	return (
