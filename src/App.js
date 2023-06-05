@@ -8,9 +8,9 @@ import Dictionary from "./components/Dictionary.js";
 
 function App() {
 	return (
-		<div className="App">
+		<div className="App mt-3">
 			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
+				<img src={logo} className="App-logo img-fluid" alt="logo" />
 			</header>
 			<main>
 				<Dictionary />

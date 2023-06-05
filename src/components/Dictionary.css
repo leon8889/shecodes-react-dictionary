@@ -2,3 +2,56 @@
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
+
+.box {
+	text-align: left;
+	background-color: #fff;
+	max-width: 800px;
+	margin: 15px auto;
+	padding: 20px 30px;
+	border-radius: 5px;
+	box-shadow: 0 30px 50px rgb(65 50 100/8%);
+}
+
+.Dictionary h1 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.Dictionary h2 {
+	color: #9353b2;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.Dictionary h3 {
+	color: #9353b2;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.Dictionary .btn {
+	background-color: #d2bce1;
+}
+
+.Dictionary .btn:hover {
+	color: #d2bce1;
+	border-color: #d2bce1;
+	background-color: #fff;
+}
+
+.Dictionary p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+.Dictionary .definition {
+	font-weight: 400;
+}
+
+.Dictionary .example {
+	font-style: italic;
+	font-size: 0.9rem;
+	font-weight: 300;
+	color: #56555e;
+}
