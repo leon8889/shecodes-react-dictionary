@@ -6,18 +6,23 @@ import "./Dictionary.css";
 
 // styling see https://sad-khorana-464dcb.netlify.app/ or https://dribbble.com/shots/18197008-React-Dictionary-Web-App
 
-export default function Dictionary() {
-	let [keyword, setKeyword] = useState("");
+export default function Dictionary(props) {
+	let [keyword, setKeyword] = useState(props.defaultKeyword);
 	let apiKey = "tb533a02o404f422da6058f58bb72fcc";
 	let [apiResult, setApiResult] = useState(null);
+	let [loaded, setLoaded] = useState(false);
 
-	function search(event) {
-		event.preventDefault();
-
+	function search() {
 		if (keyword) {
 			let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
 			axios.get(apiUrl).then(getAPIresult);
 		}
+	}
+
+	function handleSubmit(event) {
+		event.preventDefault();
+
+		search();
 	}
 
 	function handleKeyWordChange(event) {
@@ -33,32 +38,40 @@ export default function Dictionary() {
 		}
 	}
 
-	return (
-		<div className="Dictionary">
-			<div className="box">
-				<h1>Word lookup</h1>
-				<form onSubmit={search}>
-					<div className="d-flex">
-						<div className="flex-grow-1">
-							<input
-								className="form-control"
-								type="search"
-								autoFocus={true}
-								onChange={handleKeyWordChange}
-								placeholder="Search"
-							/>
+	if (loaded) {
+		return (
+			<div className="Dictionary">
+				<div className="box">
+					<h1>What word do you want to look up?</h1>
+					<form onSubmit={handleSubmit}>
+						<div className="d-flex">
+							<div className="flex-grow-1">
+								<input
+									className="form-control"
+									type="search"
+									autoFocus={true}
+									onChange={handleKeyWordChange}
+									defaultValue={props.defaultKeyword}
+								/>
+							</div>
+							<div className="mx-1">
+								<button className="btn mx-1 px-3" type="submit" value="Search">
+									Search
+								</button>
+							</div>
 						</div>
-						<div className="mx-1">
-							<button className="btn mx-1 px-3" type="submit" value="Search">
-								Search
-							</button>
-						</div>
+					</form>
+					<div className="hint">
+						suggested words: sunset, wine, yoga, forest, ...
 					</div>
-				</form>
+				</div>
+				<div>
+					<Results data={apiResult} />
+				</div>
 			</div>
-			<div>
-				<Results data={apiResult} />
-			</div>
-		</div>
-	);
+		);
+	} else {
+		setLoaded(true);
+		search();
+	}
 }

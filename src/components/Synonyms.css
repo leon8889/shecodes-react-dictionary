@@ -1,0 +1,26 @@
+.Synonyms {
+	margin-top: -10px;
+}
+
+.Synonyms .inline-list {
+	padding-left: 0;
+	list-style: none;
+	font-style: italic;
+	font-size: 0.9rem;
+	font-weight: 300;
+	color: #56555e;
+}
+
+.Synonyms .inline-list-item {
+	display: inline-block;
+	list-style-type: none;
+}
+
+.Synonyms .inline-list-item:not(:last-child) {
+	margin-right: 0.5rem;
+}
+
+.Synonyms .inline-list-item-first {
+	color: #9353b2;
+	font-weight: 400;
+}

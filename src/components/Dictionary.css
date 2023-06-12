@@ -3,7 +3,7 @@
 	margin-bottom: 30px;
 }
 
-.box {
+.Dictionary .box {
 	text-align: left;
 	background-color: #fff;
 	max-width: 800px;
@@ -35,51 +35,14 @@
 }
 
 .Dictionary .btn:hover {
-	color: #d2bce1;
+	color: #9353b2;
 	border-color: #d2bce1;
 	background-color: #fff;
 }
 
-.Dictionary p {
-	margin-top: 0;
-	margin-bottom: 1rem;
-}
-
-.Dictionary .definition {
-	font-weight: 400;
-}
-
-.Meaning .example {
+.Dictionary .hint {
 	font-style: italic;
-	font-size: 0.9rem;
-	font-weight: 300;
+	font-size: 11px;
+	margin-top: 5px;
 	color: #56555e;
-	margin-top: -10px;
-}
-
-.Synonyms {
-	margin-top: -10px;
-}
-
-.Synonyms .inline-list {
-	padding-left: 0;
-	list-style: none;
-	font-style: italic;
-	font-size: 0.9rem;
-	font-weight: 300;
-	color: #56555e;
-}
-
-.Synonyms .inline-list-item {
-	display: inline-block;
-	list-style-type: none;
-}
-
-.Synonyms .inline-list-item:not(:last-child) {
-	margin-right: 0.5rem;
-}
-
-.Synonyms .inline-list-item-first {
-	color: #9353b2;
-	font-weight: 500;
 }

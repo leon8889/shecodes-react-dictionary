@@ -13,7 +13,7 @@ function App() {
 				<img src={logo} className="App-logo img-fluid" alt="logo" />
 			</header>
 			<main>
-				<Dictionary />
+				<Dictionary defaultKeyword="hello" />
 			</main>
 			<footer>coded by leon</footer>
 		</div>
