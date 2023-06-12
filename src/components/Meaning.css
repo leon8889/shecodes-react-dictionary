@@ -1,11 +1,3 @@
 .Meaning .definition {
 	font-weight: 400;
 }
-
-.Meaning .example {
-	font-style: italic;
-	font-size: 0.9rem;
-	font-weight: 300;
-	color: #56555e;
-	margin-top: -10px;
-}
