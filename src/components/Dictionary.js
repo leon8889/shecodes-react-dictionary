@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import Results from "./Results.js";
+import Photos from "./Photos.js";
 import "./Dictionary.css";
 
 // styling see https://sad-khorana-464dcb.netlify.app/ or https://dribbble.com/shots/18197008-React-Dictionary-Web-App
@@ -10,15 +11,18 @@ export default function Dictionary(props) {
 	let [keyword, setKeyword] = useState(props.defaultKeyword);
 	let sheCodesAPIkey = "tb533a02o404f422da6058f58bb72fcc";
 	let pexelsAPIkey = "5MrOjn6FXggDuS31QwVOWlXudPMCSvyJFm2AIrdh1xLDMCZT59QVVPkW";
-	let [apiResult, setApiResult] = useState(null);
+	let [sheCodesAPIresult, setSheCodesAPIresult] = useState(null);
 	let [loaded, setLoaded] = useState(false);
+	let [pexelsAPIresult, setPexelsAPIresult] = useState(null);
 
 	function search() {
 		if (keyword) {
+			// SheCodes Dictionary API call
 			let sheCodesAPIurl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${sheCodesAPIkey}`;
 			axios.get(sheCodesAPIurl).then(handleDictionaryResponse);
 
-			let pexelsAPIurl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=1`;
+			// Pexels picture API call
+			let pexelsAPIurl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=6`;
 			let header = {
 				Authorization: `${pexelsAPIkey}`,
 			};
@@ -38,17 +42,16 @@ export default function Dictionary(props) {
 
 	function handleDictionaryResponse(response) {
 		if (response.status === 200) {
-			// console.log(response);
-			setApiResult(response.data);
+			setSheCodesAPIresult(response.data);
 		} else {
 			console.log(`${response.status}: Response Error`);
 		}
 	}
 
 	function handleImageResponse(response) {
-		console.log(response);
+		// console.log(response);
 		if (response.status === 200) {
-			// setApiResult(response.data);
+			setPexelsAPIresult(response.data.photos);
 		} else {
 			console.log(`${response.status}: Response Error`);
 		}
@@ -82,7 +85,8 @@ export default function Dictionary(props) {
 					</div>
 				</div>
 				<div>
-					<Results data={apiResult} />
+					<Results data={sheCodesAPIresult} />
+					<Photos data={pexelsAPIresult} />
 				</div>
 			</div>
 		);
