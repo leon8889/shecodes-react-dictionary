@@ -4,7 +4,6 @@ import Meaning from "./Meaning.js";
 
 export default function Results(props) {
 	if (props.data) {
-		console.log(props.data);
 		return (
 			<div className="Results">
 				<div className="box">

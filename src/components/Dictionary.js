@@ -49,7 +49,6 @@ export default function Dictionary(props) {
 	}
 
 	function handleImageResponse(response) {
-		// console.log(response);
 		if (response.status === 200) {
 			setPexelsAPIresult(response.data.photos);
 		} else {
