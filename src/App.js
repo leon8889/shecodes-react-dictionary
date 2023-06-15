@@ -15,7 +15,16 @@ function App() {
 			<main>
 				<Dictionary defaultKeyword="hello" />
 			</main>
-			<footer>coded by leon</footer>
+			<footer>
+				coded by leon, and is{" "}
+				<a
+					href="https://github.com/leon8889/shecodes-react-dictionary"
+					target="_blank"
+					rel="noreferrer"
+				>
+					open-sourced
+				</a>
+			</footer>
 		</div>
 	);
 }
