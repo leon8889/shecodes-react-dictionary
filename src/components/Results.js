@@ -11,8 +11,8 @@ export default function Results(props) {
 					<p>/{props.data.phonetic}/</p>
 				</div>
 				<div className="box">
-					{props.data.meanings.map(function (meaning, index) {
-						return <Meaning meaning={meaning} key={index} />;
+					{props.data.meanings.map(function (partOfSpeech, index) {
+						return <Meaning data={partOfSpeech} key={index} />;
 					})}
 				</div>
 			</div>

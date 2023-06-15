@@ -5,13 +5,21 @@ import Synonyms from "./Synonyms.js";
 import "./Meaning.css";
 
 export default function Meaning(props) {
-	if (props.meaning) {
+	if (props.data) {
 		return (
 			<div className="Meaning">
-				<h3>{props.meaning.partOfSpeech}</h3>
-				<p className="definition">{props.meaning.definition}</p>
-				<Example example={props.meaning.example} />
-				<Synonyms synonyms={props.meaning.synonyms} />
+				<h3>{props.data.partOfSpeech}</h3>
+				{props.data.meanings.map(function (meaning, index) {
+					return (
+						<div key={index}>
+							<p className="definition">
+								{index + 1}. {meaning.definition}
+							</p>
+							<Example example={meaning.example} />
+							<Synonyms synonyms={meaning.synonyms} />
+						</div>
+					);
+				})}
 			</div>
 		);
 	} else {

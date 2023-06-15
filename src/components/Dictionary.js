@@ -42,7 +42,25 @@ export default function Dictionary(props) {
 
 	function handleDictionaryResponse(response) {
 		if (response.status === 200) {
-			setSheCodesAPIresult(response.data);
+			let meanings = [];
+			response.data.meanings.forEach(function (meaning, index) {
+				const i = meanings.findIndex(
+					(e) => e.partOfSpeech === meaning.partOfSpeech
+				);
+				if (i > -1) {
+					meanings[i]["meanings"].push(meaning);
+				} else {
+					let helper = { partOfSpeech: meaning.partOfSpeech, meanings: [] };
+					helper["meanings"].push(meaning);
+					meanings.push(helper);
+				}
+			});
+			let result = {
+				word: response.data.word,
+				phonetic: response.data.phonetic,
+				meanings: meanings,
+			};
+			setSheCodesAPIresult(result);
 		} else {
 			console.log(`${response.status}: Response Error`);
 		}
